@@ -4,11 +4,14 @@ import * as pty from 'node-pty';
 const shell = 'bash';
 
 const ptyProcess = pty.spawn(shell, [], {
-    name: 'xterm-color',
+    name: 'xterm-256color',
     cols: process.stdout.columns || 80,
     rows: process.stdout.rows || 30,
     cwd: process.env.HOME,
-    env: process.env as { [key: string]: string },
+    env: { ...process.env, 
+        TERM: 'xterm-256color', 
+        COLORTERM: 'truecolor'
+    } as { [key: string]: string },
 });
 
 process.stdout.on('resize', () => {

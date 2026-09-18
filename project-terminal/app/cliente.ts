@@ -1,0 +1,1 @@
+// Script com a lógica do cliente que se conecta ao servidor WebSocket, envia comandos e recebe a saída do comando executado no servidor.
